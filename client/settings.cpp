@@ -5,7 +5,7 @@
 
 using json = nlohmann::json;
 
-Settings::Settings(char* path) : elements{
+Settings::Settings(const char* path) : elements{
             {"width", 1280},
             {"height", 720},
             {"fullscreen", false},
@@ -37,7 +37,7 @@ Settings::Settings(char* path) : elements{
     }
 }
 
-std::variant<int, bool, std::string> Settings::operator [](char* key) 
+std::variant<int, bool, std::string> Settings::operator [](const char* key) 
 {
     return elements[key];
 }

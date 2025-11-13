@@ -6,9 +6,10 @@
 #include <variant>
 
 class Settings {
-    Settings(char* path);
+    public:
+        Settings(const char* path);
 
-    std::variant<int, bool, std::string> operator [](char* element);
+        std::variant<int, bool, std::string> operator [](const char* key);
 
     private:
         std::map<std::string, std::variant<int, bool, std::string>> elements;
