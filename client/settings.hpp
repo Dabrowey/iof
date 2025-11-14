@@ -9,7 +9,12 @@ class Settings {
     public:
         Settings(const char* path);
 
-        std::variant<int, bool, std::string> operator [](const char* key);
+        int GetWidth();
+        int GetHeight();
+        bool IsFullscreen();
+        bool IsVSync();
+        int GetFPS();
+        std::string GetLanguage();
 
     private:
         std::map<std::string, std::variant<int, bool, std::string>> elements;

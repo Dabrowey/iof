@@ -37,7 +37,32 @@ Settings::Settings(const char* path) : elements{
     }
 }
 
-std::variant<int, bool, std::string> Settings::operator [](const char* key) 
+int Settings::GetWidth() 
 {
-    return elements[key];
+    return std::get<int>(elements["width"]);
+}
+
+int Settings::GetHeight() 
+{
+    return std::get<int>(elements["height"]);
+}
+
+bool Settings::IsFullscreen() 
+{
+    return std::get<bool>(elements["fullscreen"]);
+}
+
+bool Settings::IsVSync() 
+{
+    return std::get<bool>(elements["vsync"]);
+}
+
+int Settings::GetFPS() 
+{
+    return std::get<bool>(elements["fps"]);
+}
+
+std::string Settings::GetLanguage() 
+{
+    return std::get<std::string>(elements["language"]);
 }
